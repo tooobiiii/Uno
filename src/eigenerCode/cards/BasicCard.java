@@ -6,7 +6,7 @@ import vorgegeben.Figur;
 /**
  * Beschreiben Sie hier die Klasse BasicCard.
  *
- * @author (Thomas, Amelie, Tobi)
+ * @author (Tobi)
  * @version (V 1.0)
  */
 public class BasicCard extends Figur

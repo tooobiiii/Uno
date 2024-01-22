@@ -4,22 +4,20 @@ package eigenerCode.cards;
 import vorgegeben.Figur;
 
 /**
- * !!! Symbole wurden von Amelie gemacht aber mir nicht geschickt, die sind noch auf dem Schulrechner. !!!
- *
- * @author (Ernis, Tobi, Amelie)
+ * Symbol for the cards
+ * @author (Tobi)
  * @version (V 1.0)
  */
 public class Symbol extends Figur
 {
 	private final String symbol;
-	private static boolean debug;  //Debug boolean which outputs more information in console for error spotting (if set to true) [used for me to stop errors]
+	private static final boolean debug = false;  //Debug boolean which outputs more information in console for error spotting (if set to true) [used for me to stop errors]
 	/**
 	 * Konstruktor für Objekte der Klasse Symbol
 	 */
 	public Symbol(String type)  //creates an empty figure, because graphics are not ready yet.
 	{
 		super();
-		debug = false;
 		symbol = type;
 		switch(type.toLowerCase())
 		{

@@ -18,7 +18,6 @@ public class AI extends Misc
 	private final CardPile cp;
 
 	private final ArrayList<UnoCard> deckAI;  //Error Umgehung
-	private final boolean debug = false;
 	private boolean yourMove;
 	private boolean won;
 	/**

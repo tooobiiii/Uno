@@ -6,8 +6,8 @@ import vorgegeben.Ereignisbehandlung;
 /**
  * Write a description of class Misc here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Tobi)
+ * @version (1.0)
  */
 public class Misc extends Ereignisbehandlung
 {
@@ -22,7 +22,6 @@ public class Misc extends Ereignisbehandlung
 	/**
 	 * This Method sleeps the thread for int time
 	 * Mostly used to give the Terminal a kind of flow.
-	 * (von Tobi)
 	 * @param time to wait in ms
 	 */
 	public void Sleep(int time)

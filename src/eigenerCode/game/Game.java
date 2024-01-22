@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * This is the "control" class which starts the game and creates each object needed.
  *
  * @author (Tobi)
- * @version (V 1.1)
+ * @version (1.1)
  */
 public class Game extends Misc
 {

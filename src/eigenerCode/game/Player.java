@@ -11,7 +11,7 @@ import java.util.Scanner;
  * This class has every import method for the player here.
  *
  * @author (Tobi)
- * @version (V 1.0)
+ * @version (1.0)
  */
 public class Player extends Misc
 {

@@ -60,7 +60,6 @@ public class Wild extends SpecialCard
 					break;
 				default:
 					System.out.println("[INPUT ERROR] Please specify a valid color");
-					correct = false;
 			}
 		} while(! correct);
 	}

@@ -5,7 +5,7 @@ package eigenerCode.cards;
  * Beschreiben Sie hier die Klasse SpecialCards.
  *
  * @author (Tobi)
- * @version (-)
+ * @version (1.0)
  */
 public abstract class SpecialCard extends UnoCard
 

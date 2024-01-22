@@ -2,7 +2,7 @@ package eigenerCode.cards;
 
 
 /**
- * Beschreiben Sie hier die Klasse Bluecard.
+ * Beschreiben Sie hier die Klasse Blue card.
  *
  * @author @author (Tobi)
  * @version (V 1.0)
@@ -10,7 +10,7 @@ package eigenerCode.cards;
 public class BlueCard extends DefaultCard
 {
 	/**
-	 * Konstruktor für Objekte der Klasse Bluecard
+	 * Konstruktor für Objekte der Klasse Blue card
 	 */
 	public BlueCard(Symbol s)
 	{

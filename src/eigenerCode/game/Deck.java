@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Write a description of class Deck here.
  *
  * @author (Tobi)
- * @version (V 1.0)
+ * @version (1.0)
  */
 public class Deck extends Misc
 {
@@ -39,7 +39,7 @@ public class Deck extends Misc
 		for(int i = 0; i < deckplayer.size(); i++)
 		{
 			Sleep(250);
-			UnoCard card = (UnoCard) deckplayer.get(i);
+			UnoCard card = deckplayer.get(i);
 			System.out.println(i+1 + ". " + "You have a " + card.bc.ReturnColor() + " " + card.s.ReturnSymbol());
 		}
 	}

@@ -8,7 +8,7 @@ import java.util.Collections;
  * Beschreiben Sie hier die Klasse CardPile.
  *
  * @author (Tobi)
- * @version (V 1.0)
+ * @version (1.0)
  */
 public class CardPile
 {
@@ -17,7 +17,7 @@ public class CardPile
 	private static ArrayList<UnoCard> cardPile;
 	private static ArrayList<UnoCard> playedCards;
 
-	private static boolean debug = false;
+	private static final boolean debug = false;
 	/**
 	 * Konstruktor für Objekte der Klasse CardPile
 	 */
