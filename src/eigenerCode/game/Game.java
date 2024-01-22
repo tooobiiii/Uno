@@ -29,9 +29,6 @@ public class Game extends Misc
 		p = new Player(deck, cp, ai);
 		ai.AddPlayer(p);
 		started = false;
-
-		//Comment this if you dont want the game to autostart when an object of class game is created
-		StartGame();
 	}
 
 	@Override
