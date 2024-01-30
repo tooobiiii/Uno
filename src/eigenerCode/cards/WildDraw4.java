@@ -1,6 +1,9 @@
 package eigenerCode.cards;
 
 
+import eigenerCode.game.AI;
+import eigenerCode.game.Player;
+
 /**
  * Write a description of class Skip here.
  *
@@ -19,9 +22,21 @@ public class WildDraw4 extends SpecialCard
 	}
 
 	@Override
-	public void PlaySpecialCard()
+	public void PlaySpecialCard(Player p)
 	{
 
+	}
+
+	@Override
+	public void PlaySpecialCard(AI ai)
+	{
+
+	}
+
+	@Override
+	public boolean isPlayable()
+	{
+		return false;
 	}
 }
 

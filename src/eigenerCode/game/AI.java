@@ -1,5 +1,6 @@
 package eigenerCode.game;
 
+import eigenerCode.cards.SpecialCard;
 import eigenerCode.cards.UnoCard;
 
 import java.util.ArrayList;
@@ -44,6 +45,14 @@ public class AI extends Misc
 
 			for(UnoCard uc : deckAI)
 			{
+				if (uc instanceof SpecialCard specialCard)
+					if (specialCard.isPlayable())
+					{
+						System.out.println("SPECIAL CARD PLAY HERE!!!!!!!!!!");
+						specialCard.PlaySpecialCard(this);
+						break;
+					}
+					else continue;
 				if((Objects.equals(uc.bc.ReturnColor(), cp.ReturnPlayedTopCard().bc.ReturnColor())) || (Objects.equals(uc.s.ReturnSymbol(), cp.ReturnPlayedTopCard().s.ReturnSymbol())))
 				{
 					cp.GetALPlayedCards().add(uc);
@@ -51,15 +60,6 @@ public class AI extends Misc
 
 					Sleep(500);
 					System.out.println("[AI] AI played a " + uc.ReturnInfoShort() + " and now has " + deck.GetALDeckAI().size() + " cards left");
-
-					if(deck.GetALDeckAI().isEmpty())
-					{
-						won = true;
-					} else
-					{
-						p.PassMoveToPlayer();
-						yourMove = false;
-					}
 
 					break;
 				}   else
@@ -78,6 +78,14 @@ public class AI extends Misc
 					}
 				}
 			}
+			if(deck.GetALDeckAI().isEmpty())
+			{
+				won = true;
+			} else
+			{
+				p.PassMoveToPlayer();
+				yourMove = false;
+			}
 		}
 	}
 
@@ -87,10 +95,19 @@ public class AI extends Misc
 		cp.GetALCardPile().remove(0);
 	}
 
+	public void AIDrawCard(int amount)    //Method used to give AI a card on draw
+	{
+		for (int i = 0; i < amount; i++)
+		{
+			deck.GetALDeckAI().add(cp.GetALCardPile().get(0));
+			cp.GetALCardPile().remove(0);
+		}
+	}
+
 	public void PassMoveToAI()  //Method used when player finishes and AI is next (used in player)
 	{
 		Sleep(500);
-		System.out.println("[GAME] Your move is over. Its now AI's turn");
+		System.out.println("[GAME] Its now AI's turn");
 		yourMove = true;
 		AIPlayCard();
 	}

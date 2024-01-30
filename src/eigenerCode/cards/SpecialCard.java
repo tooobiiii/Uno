@@ -1,6 +1,9 @@
 package eigenerCode.cards;
 
 
+import eigenerCode.game.AI;
+import eigenerCode.game.Player;
+
 /**
  * Beschreiben Sie hier die Klasse SpecialCards.
  *
@@ -21,7 +24,9 @@ public abstract class SpecialCard extends UnoCard
 		isUsed = false;
 	}
 
-	public abstract void PlaySpecialCard(); //!!This class and all classes which extends from this one are not working as well as not included!!
+	public abstract void PlaySpecialCard(Player p); //!!This class and all classes that extends from this one are not working as well as not included!!
+	public abstract void PlaySpecialCard(AI ai);
+	public abstract boolean isPlayable();
 
 	public boolean ReturnUsed()
 	{

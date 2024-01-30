@@ -61,6 +61,9 @@ public class Player extends Misc
 		{
 			if(((Objects.equals(uc.s.ReturnSymbol(), cp.ReturnPlayedTopCard().s.ReturnSymbol())) || (Objects.equals(uc.bc.ReturnColor(), cp.ReturnPlayedTopCard().bc.ReturnColor())) || (uc.ReturnSpecial())))
 			{
+				if (uc instanceof SpecialCard specialCard)
+					if (!specialCard.isPlayable())
+						return;
 				if(amount == 1){
 					Sleep(500);
 					System.out.println("[GAME] You have the possibility to play the card you just drew. Do you want to do that. (Type in yes / y, or no / n)");
@@ -74,10 +77,15 @@ public class Player extends Misc
 						{
 							case "yes":
 							case "y":
-								cp.GetALPlayedCards().add(uc);
-								deck.GetALDeckPlayer().remove(deck.GetALDeckPlayer().get(deck.GetALDeckPlayer().size() - 1));
-								Sleep(500);
-								System.out.println("[PLAYER] Card played successfully.");
+								if (uc instanceof SpecialCard specialCard)
+									specialCard.PlaySpecialCard(this);
+								else
+								{
+									cp.GetALPlayedCards().add(uc);
+									deck.GetALDeckPlayer().remove(deck.GetALDeckPlayer().get(deck.GetALDeckPlayer().size() - 1));
+									Sleep(500);
+									System.out.println("[PLAYER] Card played successfully.");
+								}
 								correct = true;
 								break;
 
@@ -90,8 +98,7 @@ public class Player extends Misc
 
 							default:
 								Sleep(500);
-								System.out.println("[INPUT ERROR] Unvalid command. Try again");
-								correct = false;
+								System.out.println("[INPUT ERROR] Invalid command. Try again");
 								break;
 						}
 					} while (! correct);
@@ -103,7 +110,7 @@ public class Player extends Misc
 		ai.PassMoveToAI();
 	}
 
-	public void ScannerInput()  //Uses the scanner to check and react on the players input
+	public void ScannerInput()  //Uses the scanner to check and react on the player input
 	{
 		if(scanner.hasNextInt())
 		{
@@ -111,25 +118,15 @@ public class Player extends Misc
 			scanner.nextLine(); //Clearing the \n
 			if((input >= 1) && (input <= deck.GetALDeckPlayer().size()))
 			{
-				UnoCard triedCard = (UnoCard) deck.GetALDeckPlayer().get(input - 1);
+				UnoCard triedCard = deck.GetALDeckPlayer().get(input - 1);
 
-				if(triedCard.ReturnSpecial())   //Proceed for special cards
+				if(triedCard instanceof SpecialCard specialCard)   //Proceed for special cards
 				{
-					if(triedCard instanceof Wild wildcard)
-					{
-
-						Sleep(500);
-						System.out.println("[SPECIAL CARD] Which color would you like to choose? (Type in Blue / b, Yellow / y, Red / r, green / g");
-						Sleep(500);
-
-						wildcard.PlaySpecialCard();
-						cp.GetALPlayedCards().add(wildcard);
-						deck.GetALDeckPlayer().remove(wildcard);
-						ai.PassMoveToAI();
-					}
+					if (!specialCard.isPlayable()) return;
+					specialCard.PlaySpecialCard(this);
 				} else //proceed for not special cards
 				{
-					if((triedCard.getClass() == cp.ReturnPlayedTopCard().getClass()) || (triedCard.s.ReturnSymbol() == cp.ReturnPlayedTopCard().s.ReturnSymbol()))
+					if(Objects.equals(triedCard.bc.ReturnColor(), cp.ReturnPlayedTopCard().bc.ReturnColor()) || (Objects.equals(triedCard.s.ReturnSymbol(), cp.ReturnPlayedTopCard().s.ReturnSymbol())))
 					{
 						cp.GetALPlayedCards().add(triedCard);
 						deck.GetALDeckPlayer().remove(triedCard);
@@ -146,22 +143,9 @@ public class Player extends Misc
 						}
 					} else
 					{
-						if(cp.ReturnPlayedTopCard().ReturnSpecial())
-						{
-							SpecialCard specialcard = (SpecialCard) triedCard;
-							if(! specialcard.ReturnUsed())
-							{
-								cp.GetALPlayedCards().add(triedCard);
-								deck.GetALDeckPlayer().remove(triedCard);
-
-								System.out.println("[GAME] You have successfully played this card");
-							}
-						} else
-						{
-							Sleep(500);
-							System.out.println("[GAME] This card is not allowed to be played here. Try again.");
-							ScannerInput();
-						}
+						Sleep(500);
+						System.out.println("[GAME] This card is not allowed to be played here. Try again.");
+						ScannerInput();
 					}
 				}
 			} else
@@ -173,13 +157,13 @@ public class Player extends Misc
 		} else
 		{
 			String command = scanner.nextLine().toLowerCase();
-			if (command.equals("draw"))
+			if (command.equals("draw") || command.equals("d"))
 			{
 				PlayerDrawCard(1);
 			} else
 			{
 				Sleep(500);
-				System.out.println("[CONSOLE ERROR] Unvalid command");
+				System.out.println("[CONSOLE ERROR] Invalid command");
 				ScannerInput();
 			}
 		}

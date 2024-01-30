@@ -24,7 +24,7 @@ public class Misc extends Ereignisbehandlung
 	 * Mostly used to give the Terminal a kind of flow.
 	 * @param time to wait in ms
 	 */
-	public void Sleep(int time)
+	public static void Sleep(int time)
 	{
 		try
 		{

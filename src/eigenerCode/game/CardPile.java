@@ -47,8 +47,8 @@ public class CardPile
 			cardPile.add(new RedCard(new Symbol("seven")));
 			cardPile.add(new RedCard(new Symbol("eight")));
 			cardPile.add(new RedCard(new Symbol("nine")));
+			cardPile.add(new Skip(new BasicCard("red"), new Symbol("skip")));
 			/*
-			 cardpile.add(new RedCard(new Symbol("skip")));
 			 cardpile.add(new RedCard(new Symbol("draw2")));
 			 cardpile.add(new RedCard(new Symbol("sd")));
 			 */
@@ -72,8 +72,8 @@ public class CardPile
 			cardPile.add(new BlueCard(new Symbol("seven")));
 			cardPile.add(new BlueCard(new Symbol("eight")));
 			cardPile.add(new BlueCard(new Symbol("nine")));
+			cardPile.add(new Skip(new BasicCard("blue"), new Symbol("skip")));
 			/*
-			 cardpile.add(new BlueCard(new Symbol("skip")));
 			 cardpile.add(new BlueCard(new Symbol("draw2")));
 			 cardpile.add(new BlueCard(new Symbol("sd")));
 			 */
@@ -97,8 +97,8 @@ public class CardPile
 			cardPile.add(new YellowCard(new Symbol("seven")));
 			cardPile.add(new YellowCard(new Symbol("eight")));
 			cardPile.add(new YellowCard(new Symbol("nine")));
+			cardPile.add(new Skip(new BasicCard("yellow"), new Symbol("skip")));
 			/*
-			 cardpile.add(new YellowCard(new Symbol("skip")));
 			 cardpile.add(new YellowCard(new Symbol("draw2")));
 			 cardpile.add(new YellowCard(new Symbol("sd")));
 			 */
@@ -121,8 +121,8 @@ public class CardPile
 			cardPile.add(new GreenCard(new Symbol("seven")));
 			cardPile.add(new GreenCard(new Symbol("eight")));
 			cardPile.add(new GreenCard(new Symbol("nine")));
+			cardPile.add(new Skip(new BasicCard("green"), new Symbol("skip")));
 			/*
-			 cardpile.add(new GreenCard(new Symbol("skip")));
 			 cardpile.add(new GreenCard(new Symbol("draw2")));
 			 cardpile.add(new GreenCard(new Symbol("sd")));
 			 */
@@ -150,7 +150,7 @@ public class CardPile
 
 	public void SizeArrayList() //Outputs the size of the ArrayList card pile
 	{
-		System.out.println("There are " + cardPile.size() + " cards on the cardpile");
+		System.out.println("There are " + cardPile.size() + " cards on the card pile");
 	}
 
 	public void GiveCardsToPlayers()    //Gives 7 cards to each player and ai and adds 1 playing card

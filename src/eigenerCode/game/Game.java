@@ -1,5 +1,6 @@
 package eigenerCode.game;
 
+import eigenerCode.cards.SpecialCard;
 import eigenerCode.cards.UnoCard;
 
 import java.util.Objects;
@@ -13,10 +14,10 @@ import java.util.ArrayList;
  */
 public class Game extends Misc
 {
-	private final Player p;
-	private final Deck deck;
-	private final CardPile cp;
-	private final AI ai;
+	private static Player p;
+	private static Deck deck;
+	private static CardPile cp;
+	private static AI ai;
 
 	private boolean started;
 	/**
@@ -83,7 +84,10 @@ public class Game extends Misc
 		PrepareGame();
 		Starten();
 		started = true;
-		p.PassMoveToPlayer();
+		if (cp.ReturnPlayedTopCard() instanceof SpecialCard specialCard)
+			specialCard.PlaySpecialCard(p);
+		else
+			p.PassMoveToPlayer();
 	}
 
 	public void Testing(String test)    //Method used for error spotting
@@ -115,6 +119,26 @@ public class Game extends Misc
 				System.out.println(uc.ReturnInfo());
 			}
 		}
+	}
+
+	public static AI getAi()
+	{
+		return ai;
+	}
+
+	public static CardPile getCp()
+	{
+		return cp;
+	}
+
+	public static Deck getDeck()
+	{
+		return deck;
+	}
+
+	public static Player getP()
+	{
+		return p;
 	}
 }
 
