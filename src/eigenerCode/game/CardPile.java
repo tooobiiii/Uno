@@ -139,6 +139,7 @@ public class CardPile
 		for(int i = 0; i < 4; i++)
 		{
 			cardPile.add(new Wild());
+			cardPile.add(new WildDraw4());
 		}
 
 	}
