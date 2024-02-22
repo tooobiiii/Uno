@@ -15,13 +15,13 @@ import java.util.Scanner;
  */
 public class Player extends Misc
 {
-	//References
+	// References
 	private final CardPile cp;
 	private final Deck deck;
 	private final Scanner scanner;
 	private final AI ai;
 
-	//Attributes
+	// Attributes
 	private boolean yourMove;
 	private boolean won;
 	private final ArrayList<UnoCard> drewCards;
@@ -41,9 +41,8 @@ public class Player extends Misc
 		won = false;
 	}
 
-	public void PlayerDrawCard(int amount)  //Method to draw a card as the player
+	public void PlayerDryDraw(int amount)
 	{
-		drewCards.clear();
 		for(int i = 0; i < amount; i++)
 		{
 			UnoCard drawCard = cp.GetALCardPile().get(0);
@@ -55,8 +54,14 @@ public class Player extends Misc
 			Sleep(500);
 			System.out.println("[PLAYER] You just got a " + drawCard.bc.ReturnColor() + " " + drawCard.s.ReturnSymbol());
 		}
+	}
 
-		//Offers to play a card of possible after you drew one
+	public void PlayerDrawCard(int amount)  // Method to draw a card as the player
+	{
+		drewCards.clear();
+		PlayerDryDraw(amount);
+
+		// Offers to play a card of possible after you drew one
 		for(UnoCard uc : drewCards)
 		{
 			if(((Objects.equals(uc.s.ReturnSymbol(), cp.ReturnPlayedTopCard().s.ReturnSymbol())) || (Objects.equals(uc.bc.ReturnColor(), cp.ReturnPlayedTopCard().bc.ReturnColor())) || (uc.ReturnSpecial())))
@@ -110,21 +115,21 @@ public class Player extends Misc
 		ai.PassMoveToAI();
 	}
 
-	public void ScannerInput()  //Uses the scanner to check and react on the player input
+	public void ScannerInput()  // Uses the scanner to check and react on the player input
 	{
 		if(scanner.hasNextInt())
 		{
 			int input = scanner.nextInt();
-			scanner.nextLine(); //Clearing the \n
+			scanner.nextLine(); // Clearing the \n
 			if((input >= 1) && (input <= deck.GetALDeckPlayer().size()))
 			{
 				UnoCard triedCard = deck.GetALDeckPlayer().get(input - 1);
 
-				if(triedCard instanceof SpecialCard specialCard)   //Proceed for special cards
+				if(triedCard instanceof SpecialCard specialCard)   // Proceed for special cards
 				{
 					if (!specialCard.isPlayable()) return;
 					specialCard.PlaySpecialCard(this);
-				} else //proceed for not special cards
+				} else // Proceed for not special cards
 				{
 					if(Objects.equals(triedCard.bc.ReturnColor(), cp.ReturnPlayedTopCard().bc.ReturnColor()) || (Objects.equals(triedCard.s.ReturnSymbol(), cp.ReturnPlayedTopCard().s.ReturnSymbol())))
 					{
@@ -169,7 +174,7 @@ public class Player extends Misc
 		}
 	}
 
-	public void PlayerPlayCard()    //Method used to play a card as the player
+	public void PlayerPlayCard()    // Method used to play a card as the player
 	{
 		if((yourMove) && (! deck.GetALDeckPlayer().isEmpty()))
 		{
@@ -184,13 +189,13 @@ public class Player extends Misc
 		}
 	}
 
-	public void PassMoveToPlayer()  //This method is used when the the AI finished their move and passes their move to the player
+	public void PassMoveToPlayer()  // This method is used when the AI finished their move and passes their move to the player
 	{
 		yourMove = true;
 		PlayerPlayCard();
 	}
 
-	public boolean ReturnWon()  //Returns won
+	public boolean ReturnWon()  // Returns won
 	{
 		return won;
 	}

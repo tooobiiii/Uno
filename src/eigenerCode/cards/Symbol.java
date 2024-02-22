@@ -11,11 +11,11 @@ import vorgegeben.Figur;
 public class Symbol extends Figur
 {
 	private final String symbol;
-	private static final boolean debug = false;  //Debug boolean which outputs more information in console for error spotting (if set to true) [used for me to stop errors]
+	private static final boolean debug = false;  // Debug boolean which outputs more information in console for error spotting (if set to true) [used for me to stop errors]
 	/**
 	 * Konstruktor für Objekte der Klasse Symbol
 	 */
-	public Symbol(String type)  //creates an empty figure, because graphics are not ready yet.
+	public Symbol(String type)  // Creates an empty figure, because graphics are not ready yet.
 	{
 		super();
 		symbol = type;
@@ -96,13 +96,11 @@ public class Symbol extends Figur
 				break;
 		}
 
-		if(debug)   //Part of the debug
-		{
+		if(debug)   // Part of the debug
 			System.out.println("Symbol " + type);
-		}
 	}
 
-	public String ReturnSymbol()    //Returns the symbol which a UnoCard has
+	public String ReturnSymbol()    // Returns the symbol which an UnoCard has
 	{
 		return symbol;
 	}

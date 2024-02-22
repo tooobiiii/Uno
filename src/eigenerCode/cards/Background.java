@@ -4,7 +4,7 @@ package eigenerCode.cards;
 import vorgegeben.Figur;
 
 /**
- * This is the background of the playing area in the Uno visualization
+ * This is the background of the playing area in the uno visualization part
  *
  * @author (Tobi)
  * @version (V 1.0)
@@ -27,23 +27,23 @@ public class Background extends Figur
 	}
 
 	@Override
-	public void MausGeklickt(int x, int y, int anzahl)  //I created Buttons for the graphical design to perform an action
+	public void MausGeklickt(int x, int y, int anzahl)  // I created buttons for the graphical design to perform an action
 	{
 		System. out. println ("Maus: (" + x + "|" + y + "), " + anzahl + " mal");
 		if((x >= 110) && (x <= 310)) {
 			if((y >= 140) && (y <= 340))
 			{
-				System.out.println("Button 1");     //Draw
+				System.out.println("Button 1");     // Draw
 			}
 
 			if((y >= 560) && (y <= 760))
 			{
-				System.out.println("Button 2");     //PlayCard
+				System.out.println("Button 2");     // PlayCard
 			}
 
 			if((y >= 980) && (y <= 1180))
 			{
-				System.out.println("Button 3");     // I dont know
+				System.out.println("Button 3");     // I don't know yet
 			}
 		}
 	}

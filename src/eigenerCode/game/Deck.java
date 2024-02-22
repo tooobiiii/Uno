@@ -11,8 +11,8 @@ import java.util.ArrayList;
  */
 public class Deck extends Misc
 {
-	private final ArrayList<UnoCard> deckplayer;  //Used to save all cards which the player currently has
-	private final ArrayList<UnoCard> deckAI;  //Used to save all cards which the KI currently has
+	private static ArrayList<UnoCard> deckplayer;  // Used to save all cards that the player currently has
+	private static ArrayList<UnoCard> deckAI;  // Used to save all cards that the AI currently has
 	/**
 	 * Constructor for objects of class Deck
 	 */
@@ -22,17 +22,17 @@ public class Deck extends Misc
 		deckplayer = new ArrayList<>();
 	}
 
-	public ArrayList<UnoCard> GetALDeckPlayer()  //Returns the ArrayList to make it easy to use in other classes
+	public ArrayList<UnoCard> GetALDeckPlayer()  // Returns the ArrayList to make it easy to use in other classes
 	{
 		return deckplayer;
 	}
 
-	public ArrayList<UnoCard> GetALDeckAI()  //Returns the ArrayList to make it easy to use in other classes
+	public ArrayList<UnoCard> GetALDeckAI()  // Returns the ArrayList to make it easy to use in other classes
 	{
 		return deckAI;
 	}
 
-	public void ShowYourDeck()  //Console output for the player to know about what cards he has
+	public void ShowYourDeck()  // Console output for the player to know about what cards he has
 	{
 		Sleep(500);
 		System.out.println("Here are your cards: ");

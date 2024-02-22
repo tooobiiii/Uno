@@ -5,7 +5,7 @@ import eigenerCode.game.AI;
 import eigenerCode.game.Player;
 
 /**
- * Beschreiben Sie hier die Klasse SpecialCards.
+ * This represents objects that are special
  *
  * @author (Tobi)
  * @version (1.0)
@@ -24,7 +24,7 @@ public abstract class SpecialCard extends UnoCard
 		isUsed = false;
 	}
 
-	public abstract void PlaySpecialCard(Player p); //!!This class and all classes that extends from this one are not working as well as not included!!
+	public abstract void PlaySpecialCard(Player p);
 	public abstract void PlaySpecialCard(AI ai);
 	public abstract boolean isPlayable();
 

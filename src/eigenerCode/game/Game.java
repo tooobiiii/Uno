@@ -33,7 +33,7 @@ public class Game extends Misc
 	}
 
 	@Override
-	public void TaktImpulsAusführen()   //Will not work as long as graphic is not implemented
+	public void TaktImpulsAusführen()   // Will not work as long as graphic is not implemented
 	{
 		if(started)
 		{
@@ -51,7 +51,7 @@ public class Game extends Misc
 		}
 	}
 
-	public void YouLost()   //Method for when you lose
+	public void YouLost()   // Method for when you lose
 	{
 		for(int i = 0; i < 3; i++)
 		{
@@ -61,7 +61,7 @@ public class Game extends Misc
 		started = false;
 	}
 
-	public void YouWon()    //Method for when you won
+	public void YouWon()    // Method for when you won
 	{
 		for(int i = 0; i < 3; i++)
 		{
@@ -71,15 +71,15 @@ public class Game extends Misc
 		started = false;
 	}
 
-	public void PrepareGame()   //Used for checking for bugs, because you cant run other methods while scanner is waiting for an answer so this does not start the game but prepares it.
+	public void PrepareGame()   // Used for checking for bugs, because you cant run other methods while scanner is waiting for an answer so this does not start the game but prepares it.
 	{
-		//  Creating and shuffling all cards, as well as giving them out to the player and ki
+		// Creating and shuffling all cards, as well as giving them out to the player and ki
 		cp.AllCards();
 		cp.ShuffleArrayList();
 		cp.GiveCardsToPlayers();
 	}
 
-	public void StartGame() //Prepares and starts the game
+	public void StartGame() // Prepares and starts the game
 	{
 		PrepareGame();
 		Starten();
@@ -90,7 +90,7 @@ public class Game extends Misc
 			p.PassMoveToPlayer();
 	}
 
-	public void Testing(String test)    //Method used for error spotting
+	public void Testing(String test)    // Method used for error spotting
 	{
 		ArrayList<UnoCard> playedCards = cp.GetALPlayedCards();
 		ArrayList<UnoCard> deckAI = deck.GetALDeckAI();

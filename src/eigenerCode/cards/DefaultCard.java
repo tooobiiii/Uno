@@ -1,7 +1,7 @@
 package eigenerCode.cards;
 
 /**
- * Beschreiben Sie hier die Klasse DefaultCards.
+ * This class represents all objects that are not a special card
  *
  * @author (Tobi)
  * @version (V 1.0)

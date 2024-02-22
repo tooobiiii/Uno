@@ -11,7 +11,7 @@ import static eigenerCode.game.Game.getCp;
 import static eigenerCode.game.Game.getDeck;
 
 /**
- * Write a description of class Skip here.
+ * This represents objects that are of the skip type, no matter what color
  *
  * @author (Tobi)
  * @version (V 1.0)

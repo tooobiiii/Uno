@@ -2,7 +2,7 @@ package eigenerCode.cards;
 
 
 /**
- * Beschreiben Sie hier die Klasse YellowCard.
+ * This represents objects that are a yellow card of any symbol
  *
  * @author (Tobi)
  * @version (V 1.0)

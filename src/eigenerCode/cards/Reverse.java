@@ -5,7 +5,8 @@ import eigenerCode.game.AI;
 import eigenerCode.game.Player;
 
 /**
- * Write a description of class Skip here.
+ * This represents objects that are of the skip type, no matter what color
+ * Complete class not done yet
  *
  * @author (Tobi)
  * @version (V 1.0)

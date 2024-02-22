@@ -12,7 +12,7 @@ import vorgegeben.Figur;
 public class BasicCard extends Figur
 {
 	private String color;
-	private static boolean debug;  //Debug boolean which outputs more information in console for error spotting (if set to true) [used for me to stop errors]
+	private static boolean debug;  // Debug boolean which outputs more information in console for error spotting (if set to true) [used for me to stop errors]
 	/**
 	 * Konstruktor für Objekte der Klasse BasicCard
 	 */
@@ -26,13 +26,11 @@ public class BasicCard extends Figur
 		FigurteilFestlegenEllipse(110,110,270,370, "weiß");
 
 		this.color = farbe;
-		if(debug)   //Part of the debug
-		{
+		if(debug)   // Part of the debug
 			System.out.println("The card has the color " + farbe);
-		}
 	}
 
-	public String ReturnColor() //Translating color from Figur and returning
+	public String ReturnColor() // Translating color from Figur and returning
 	{
 		return switch (color)
 		{
@@ -65,7 +63,7 @@ public class BasicCard extends Figur
 		};
 	}
 
-	public void ChangeColor(String color)   //sets new card color. valid for wild cards.
+	public void ChangeColor(String color)   // Sets new card color
 	{
 		switch(color)
 		{
@@ -86,9 +84,11 @@ public class BasicCard extends Figur
 				break;
 
 			default:
-				System.out.println("[ERROR] INVALID COLOR WAS GIVEN TO CARD CHECK CLASSES"); //Error
+				System.out.println("[ERROR] INVALID COLOR WAS GIVEN TO CARD! CHECK CLASSES"); // Error
 				break;
 		}
+		if (debug)
+			System.out.println("[DEBUG] Card color changed to " + color);
 	}
 }
 

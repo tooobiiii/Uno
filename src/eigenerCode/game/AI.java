@@ -8,6 +8,7 @@ import java.util.Objects;
 
 /**
  * AI works as an automatic BOT which plays whatever card is possible. If multiple, random choice.
+ * It is not that smart yet
  *
  * @author (Tobi)
  * @version (V 1.0)
@@ -18,7 +19,7 @@ public class AI extends Misc
 	private final Deck deck;
 	private final CardPile cp;
 
-	private final ArrayList<UnoCard> deckAI;  //Error Umgehung
+	private final ArrayList<UnoCard> deckAI;
 	private boolean yourMove;
 	private boolean won;
 	/**
@@ -31,24 +32,27 @@ public class AI extends Misc
 
 		won = false;
 
-		deckAI = deck.GetALDeckAI();    //Hier weil direkte Übergabe Error
+		deckAI = deck.GetALDeckAI();
 	}
 
-	public void AIPlayCard()    //Automatically plays a card as the AI, well it only checks if something is possible, if not, AI draws a card. [Note | NOT DONE] Random choice of possible cards, or even smart choice.
+	public void AIPlayCard()    // Automatically plays a card as the AI, well it only checks if something is possible, if not, AI draws a card. [Note | NOT DONE] Random choice of possible cards, or even smart choice.
 	{
+		/* Ai card check
+		System.out.println(deckAI.size());
+		deckAI.forEach(unoCard -> System.out.println(unoCard.ReturnInfo()));
+		 */
 		if(yourMove)
 		{
 			int triedcards = 0;
 			Sleep(500);
 			System.out.println("[AI] AI thinks about what to respond to a " + cp.ReturnPlayedTopCard().bc.ReturnColor() + " " + cp.ReturnPlayedTopCard().s.ReturnSymbol());
-			//deckAI = deck.GetALDeckAI();
 
 			for(UnoCard uc : deckAI)
 			{
 				if (uc instanceof SpecialCard specialCard)
 					if (specialCard.isPlayable())
 					{
-						System.out.println("SPECIAL CARD PLAY HERE!!!!!!!!!!");
+						System.out.println("[SPECIAL CARD] AI played a " + uc.ReturnInfoShort());
 						specialCard.PlaySpecialCard(this);
 						break;
 					}
@@ -89,13 +93,13 @@ public class AI extends Misc
 		}
 	}
 
-	public void AIDrawCard()    //Method used to give AI a card on draw
+	public void AIDrawCard()    // Method used to give AI a card on draw
 	{
 		deck.GetALDeckAI().add(cp.GetALCardPile().get(0));
 		cp.GetALCardPile().remove(0);
 	}
 
-	public void AIDrawCard(int amount)    //Method used to give AI a card on draw
+	public void AIDrawCard(int amount)    // Method used to give AI x number of cards on draw
 	{
 		for (int i = 0; i < amount; i++)
 		{
@@ -104,7 +108,7 @@ public class AI extends Misc
 		}
 	}
 
-	public void PassMoveToAI()  //Method used when player finishes and AI is next (used in player)
+	public void PassMoveToAI()  // Method used when player finishes and AI is next (used in player)
 	{
 		Sleep(500);
 		System.out.println("[GAME] Its now AI's turn");
@@ -112,17 +116,17 @@ public class AI extends Misc
 		AIPlayCard();
 	}
 
-	public void AddPlayer(Player p) //Adding the player afterward to avoid error (in Game)
+	public void AddPlayer(Player p) // Adding the player afterward to avoid error (in Game)
 	{
 		this.p = p;
 	}
 
-	public boolean ReturnYourMove() //This is here for future purposes for graphical design)
+	public boolean ReturnYourMove() // This is here for future purposes for graphical design
 	{
 		return yourMove;
 	}
 
-	public boolean ReturnWon()  //Did you win or did you cheat?
+	public boolean ReturnWon()  // Did you win or did you cheat?
 	{
 		return won;
 	}

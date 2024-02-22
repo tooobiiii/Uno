@@ -2,7 +2,7 @@ package eigenerCode.cards;
 
 
 /**
- * Beschreiben Sie hier die Klasse GreenCard.
+ * This represents objects that are a green card of any symbol
  *
  * @author (Tobi)
  * @version (V 1.0)

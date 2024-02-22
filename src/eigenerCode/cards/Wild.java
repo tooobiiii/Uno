@@ -12,7 +12,7 @@ import static eigenerCode.game.Game.getDeck;
 import static eigenerCode.game.Misc.Sleep;
 
 /**
- * Write a description of class Skip here.
+ * This represents objects that are of the wild type
  *
  * @author (Tobi)
  * @version (V 1.0)
@@ -87,8 +87,8 @@ public class Wild extends SpecialCard
 		System.out.println("[AI] AI is choosing a color");
 		Sleep(500);
 		Random random = new Random();
-		int c = random.nextInt(1,5);
-		switch (c)
+		int r = random.nextInt(1,5);
+		switch (r)
 		{
 			case 1:
 				this.bc.ChangeColor("red");

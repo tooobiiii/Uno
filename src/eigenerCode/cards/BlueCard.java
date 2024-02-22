@@ -2,7 +2,7 @@ package eigenerCode.cards;
 
 
 /**
- * Beschreiben Sie hier die Klasse Blue card.
+ * This represents objects that are a blue card of any symbol
  *
  * @author @author (Tobi)
  * @version (V 1.0)
